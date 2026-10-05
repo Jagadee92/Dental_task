@@ -1186,58 +1186,34 @@ endobj`,
     if (wrap) {
       let drag = false
 
-      function updateBeforeAfter(position) {
-        const before = document.getElementById("baBefore")
-        const after = document.getElementById("baAfter")
-        const divider = document.getElementById("baDivider")
-        const beforeLabel = document.querySelector(".ba-label.left")
-        const afterLabel = document.querySelector(".ba-label.right")
-
-        if (!before || !after || !divider) return
-
-        position = Math.max(0, Math.min(100, position))
-
-        before.style.clipPath = `inset(0 ${100 - position}% 0 0)`
-        divider.style.left = `${position}%`
-
-        const beforeWatermark = position <= 18 ? 0 : position <= 52 ? 0.08 : 0.15
-        const afterWatermark = position >= 82 ? 0 : position >= 48 ? 0.08 : 0.15
-
-        before.style.setProperty("--watermark-opacity", beforeWatermark)
-        after.style.setProperty("--watermark-opacity", afterWatermark)
-
-        if (beforeLabel) {
-          beforeLabel.style.opacity = position <= 18 ? "0" : "1"
-        }
-
-        if (afterLabel) {
-          afterLabel.style.opacity = position >= 82 ? "0" : "1"
-        }
-      }
-
       const move = (x) => {
         const r = wrap.getBoundingClientRect()
-        const p = ((x - r.left) / r.width) * 100
 
-        updateBeforeAfter(p)
+        const p = Math.max(0, Math.min(100, ((x - r.left) / r.width) * 100))
 
+        const before = $("#baBefore")
+        const divider = $("#baDivider")
         const hint = $("#dragHint")
+
+        if (before) {
+          before.style.clipPath = `inset(0 ${100 - p}% 0 0)`
+        }
+
+        if (divider) {
+          divider.style.left = p + "%"
+        }
+
         if (hint) {
           hint.style.display = "none"
         }
       }
 
-      const finishDrag = () => {
-        drag = false
-      }
-
       wrap.onpointerdown = (e) => {
         drag = true
+
         move(e.clientX)
 
-        if (typeof e.pointerId === "number") {
-          wrap.setPointerCapture(e.pointerId)
-        }
+        wrap.setPointerCapture(e.pointerId)
       }
 
       wrap.onpointermove = (e) => {
@@ -1246,29 +1222,13 @@ endobj`,
         }
       }
 
-      wrap.onpointerup = finishDrag
-      wrap.onpointercancel = finishDrag
-      wrap.onpointerleave = finishDrag
-
-      wrap.ontouchstart = (e) => {
-        if (!e.touches || !e.touches[0]) return
-        drag = true
-        move(e.touches[0].clientX)
-        e.preventDefault()
+      wrap.onpointerup = () => {
+        drag = false
       }
 
-      wrap.ontouchmove = (e) => {
-        if (!drag || !e.touches || !e.touches[0]) return
-        move(e.touches[0].clientX)
-        e.preventDefault()
+      wrap.onpointercancel = () => {
+        drag = false
       }
-
-      wrap.ontouchend = finishDrag
-      wrap.ontouchcancel = finishDrag
-
-      wrap.onpointercancel = finishDrag
-
-      updateBeforeAfter(50)
     }
 
     /* -------------------------------------------------------
