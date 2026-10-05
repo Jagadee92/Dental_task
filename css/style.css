@@ -464,8 +464,6 @@ a {
   background: #d9f7f3;
   box-shadow: 0 25px 60px #042f2e1f;
   touch-action: none;
-  user-select: none;
-  -webkit-user-select:auto;
 }
 .ba-layer {
   position: absolute;
@@ -478,12 +476,10 @@ a {
 .ba-layer:after {
   font-size: 8rem;
   font-weight: 900;
-  opacity: var(--watermark-opacity, 0.15);
-  transition: opacity 0.15s ease;
+  opacity: 0.15;
 }
 .ba-before,
 .ba-layer.before {
-  --watermark-opacity: 0.15;
   background: linear-gradient(135deg, #59636e, #c7bcb3 45%, #6f6964);
 }
 .ba-layer.before:after {
@@ -491,7 +487,6 @@ a {
   color: #fff;
 }
 .ba-layer.after {
-  --watermark-opacity: 0.15;
   background: linear-gradient(135deg, #d8fff8, #fff 55%, #9fe3d8);
 }
 .ba-layer.after:after {
@@ -510,16 +505,12 @@ a {
   font-size: 0.7rem;
   font-weight: 800;
   z-index: 4;
-  transition: opacity 0.12s ease;
-  pointer-events: none;
 }
 .ba-label.left {
   left: 16px;
-  opacity: 1;
 }
 .ba-label.right {
   right: 16px;
-  opacity: 1;
 }
 .ba-divider {
   position: absolute;
@@ -1270,50 +1261,7 @@ footer {
     font-size: 0.65rem;
   }
   .ba-wrap {
-    height: 240px;
-    border-radius: 18px;
-  }
-
-  .ba-layer:after {
-    font-size: 3.5rem;
-    letter-spacing: -0.06em;
-  }
-
-  .ba-label {
-    top: 10px;
-    padding: 6px 9px;
-    font-size: 0.58rem;
-    line-height: 1.2;
-    max-width: 40%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    z-index: 10;
-    transition: opacity 0.15s ease;
-  }
-
-  .ba-label.left {
-    left: 10px;
-  }
-
-  .ba-label.right {
-    right: 10px;
-  }
-
-  .ba-divider {
-    width: 3px;
-  }
-
-  .ba-divider span {
-    width: 40px;
-    height: 40px;
-    font-size: 1rem;
-  }
-
-  .drag-hint {
-    bottom: 10px;
-    font-size: 0.58rem;
-    padding: 6px 9px;
+    height: 390px;
   }
   .queue-main {
     display: grid;
