@@ -1200,18 +1200,18 @@ endobj`,
         before.style.clipPath = `inset(0 ${100 - position}% 0 0)`
         divider.style.left = `${position}%`
 
-        const beforeWatermark = position < 10 ? 0 : position < 35 ? 0.06 : 0.15
-        const afterWatermark = position > 90 ? 0 : position > 65 ? 0.06 : 0.15
+        const beforeWatermark = position <= 18 ? 0 : position <= 52 ? 0.08 : 0.15
+        const afterWatermark = position >= 82 ? 0 : position >= 48 ? 0.08 : 0.15
 
         before.style.setProperty("--watermark-opacity", beforeWatermark)
         after.style.setProperty("--watermark-opacity", afterWatermark)
 
         if (beforeLabel) {
-          beforeLabel.style.opacity = position < 18 ? "0" : "1"
+          beforeLabel.style.opacity = position <= 18 ? "0" : "1"
         }
 
         if (afterLabel) {
-          afterLabel.style.opacity = position > 82 ? "0" : "1"
+          afterLabel.style.opacity = position >= 82 ? "0" : "1"
         }
       }
 
@@ -1228,7 +1228,7 @@ endobj`,
       }
 
       const finishDrag = () => {
-        drag = true
+        drag = false
       }
 
       wrap.onpointerdown = (e) => {
@@ -1248,10 +1248,7 @@ endobj`,
 
       wrap.onpointerup = finishDrag
       wrap.onpointercancel = finishDrag
-      wrap.onpointerleave = () => {
-        if (!drag) return
-        drag = false
-      }
+      wrap.onpointerleave = finishDrag
 
       wrap.ontouchstart = (e) => {
         if (!e.touches || !e.touches[0]) return
@@ -1269,9 +1266,9 @@ endobj`,
       wrap.ontouchend = finishDrag
       wrap.ontouchcancel = finishDrag
 
-      wrap.onpointercancel = () => {
-        drag = false
-      }
+      wrap.onpointercancel = finishDrag
+
+      updateBeforeAfter(50)
     }
 
     /* -------------------------------------------------------
