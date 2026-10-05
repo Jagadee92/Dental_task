@@ -1261,7 +1261,22 @@ footer {
     font-size: 0.65rem;
   }
   .ba-wrap {
-    height: 390px;
+    height: 300px;
+  }
+  .ba-label {
+    top: 12px;
+    padding: 6px 10px;
+    font-size: 0.6rem;
+  }
+  .ba-divider span {
+    width: 42px;
+    height: 42px;
+    font-size: 1.1rem;
+  }
+  .drag-hint {
+    bottom: 12px;
+    font-size: 0.62rem;
+    padding: 7px 10px;
   }
   .queue-main {
     display: grid;
