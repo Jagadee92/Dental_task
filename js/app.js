@@ -1189,7 +1189,7 @@ endobj`,
       const move = (x) => {
         const r = wrap.getBoundingClientRect()
 
-        const p = Math.max(0, Math.min(100, ((x - r.left) / r.width) * 100))
+        const p = Math.max(12, Math.min(88, ((x - r.left) / r.width) * 100))
 
         const before = $("#baBefore")
         const divider = $("#baDivider")
