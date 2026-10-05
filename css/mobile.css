@@ -107,6 +107,27 @@
     height: 360px;
   }
 
+  .ba-before,
+  .ba-layer.before {
+    display: none !important;
+  }
+
+  .ba-layer.after {
+    width: 100%;
+  }
+
+  .ba-divider {
+    display: none;
+  }
+
+  .ba-label {
+    display: none;
+  }
+
+  .drag-hint {
+    display: none;
+  }
+
   .floating-badge {
     width: 100%;
     font-size: 0.7rem;
@@ -124,6 +145,12 @@
 
   .queue-main {
     gap: 12px;
+    flex-direction: column;
+  }
+
+  .current-token,
+  .next-tokens {
+    width: 100%;
   }
 
   .current-token strong,
@@ -200,5 +227,17 @@
 
   .mobile-action-bar {
     display: flex;
+  }
+
+  .section-heading h2 {
+    font-size: 1.5rem;
+  }
+
+  .metric strong {
+    font-size: 1.5rem;
+  }
+
+  .metric span {
+    font-size: 0.6rem;
   }
 }
