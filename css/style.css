@@ -42,8 +42,12 @@ h3 {
   line-height: 1.15;
 }
 button,
-a {
+a,
+input,
+select,
+textarea {
   min-height: 48px;
+  min-width: 48px;
 }
 .section-pad {
   padding: 90px 0;
@@ -372,6 +376,7 @@ a {
   gap: 8px;
   overflow: auto;
   scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
   padding-bottom: 4px;
 }
 .filter-row button,
@@ -1124,7 +1129,6 @@ a {
   opacity: 1;
 }
 .mobile-action-bar {
-  display: none;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -1134,6 +1138,16 @@ a {
   border-top: 1px solid var(--line);
   padding: 7px;
   gap: 7px;
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(110%);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.mobile-action-bar.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
 }
 .mobile-action-bar a,
 .mobile-action-bar button {
@@ -1154,6 +1168,11 @@ a {
   flex: 1;
   background: var(--teal700);
   color: #fff;
+}
+@media (min-width: 768px) {
+  .mobile-action-bar {
+    display: none !important;
+  }
 }
 .reveal {
   opacity: 0;
@@ -1246,9 +1265,24 @@ footer {
     display: flex;
     overflow: auto;
     scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
   }
   .doctor-card {
     min-width: 84%;
+    scroll-snap-align: start;
+  }
+  #treatmentGrid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 6px;
+    margin-bottom: 0;
+  }
+  #treatmentGrid > .col,
+  #treatmentGrid > [class*="col-"] {
+    flex: 0 0 84%;
+    max-width: 84%;
     scroll-snap-align: start;
   }
   .metric {
