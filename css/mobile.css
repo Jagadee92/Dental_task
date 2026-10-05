@@ -1,0 +1,204 @@
+@media (max-width: 991px) {
+  .comparison-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .doctor-scroller {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .video-reviews,
+  .reviews-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tour-card,
+  .emi-card,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-dental-art {
+    height: 420px;
+  }
+
+  .open-status {
+    display: none;
+  }
+
+  .floating-badge {
+    position: static;
+    margin-top: 12px;
+  }
+}
+
+@media (max-width: 767px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .site-header {
+    height: 68px;
+  }
+
+  .section-pad {
+    padding: 60px 0;
+  }
+
+  .hero-section {
+    padding-top: 100px;
+    min-height: auto;
+  }
+
+  .hero-section h1 {
+    font-size: 2.45rem;
+    line-height: 1.08;
+  }
+
+  .hero-copy {
+    font-size: 1rem;
+  }
+
+  .social-proof {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .micro-tags {
+    gap: 6px;
+  }
+
+  .comparison-grid,
+  .doctor-scroller,
+  .video-reviews,
+  .reviews-grid,
+  .choice-grid,
+  .form-grid,
+  .rooms,
+  .tour-card,
+  .emi-card,
+  .contact-grid,
+  .assessment-options,
+  .confirm-details,
+  .roadmap-line {
+    grid-template-columns: 1fr;
+  }
+
+  .phone-pill {
+    display: none;
+  }
+
+  .nav-actions {
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 12px;
+  }
+
+  .navbar-nav {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .brand small {
+    display: none;
+  }
+
+  .ba-wrap {
+    height: 360px;
+  }
+
+  .floating-badge {
+    width: 100%;
+    font-size: 0.7rem;
+  }
+
+  .doctor-avatar {
+    height: 180px;
+  }
+
+  .queue-head,
+  .queue-main,
+  .queue-head > div {
+    display: block;
+  }
+
+  .queue-main {
+    gap: 12px;
+  }
+
+  .current-token strong,
+  .next-tokens strong {
+    font-size: 1.8rem;
+  }
+
+  .modal-card {
+    padding: 20px;
+  }
+
+  .booking-progress {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .wizard-actions {
+    flex-direction: column-reverse;
+  }
+
+  .date-row,
+  .slot-row,
+  .shift-row,
+  .filter-row {
+    overflow-x: auto;
+  }
+
+  .date-pill,
+  .slot-chip,
+  .shift-row button {
+    min-width: 90px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .hero-section h1 {
+    font-size: 2.1rem;
+  }
+
+  .btn-primary-glow,
+  .btn-outline-teal,
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-section .d-flex {
+    flex-direction: column;
+  }
+
+  .micro-tags span,
+  .tour-points span,
+  .trust-badges span {
+    width: 100%;
+    text-align: center;
+  }
+
+  .ba-label {
+    font-size: 0.6rem;
+  }
+
+  .drag-hint {
+    bottom: 10px;
+    font-size: 0.65rem;
+  }
+
+  .modal-shell {
+    padding: 10px;
+  }
+
+  .mobile-action-bar {
+    display: flex;
+  }
+}
