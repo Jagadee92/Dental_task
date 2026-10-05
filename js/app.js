@@ -1228,7 +1228,7 @@ endobj`,
       }
 
       const finishDrag = () => {
-        drag = false
+        drag = true
       }
 
       wrap.onpointerdown = (e) => {
