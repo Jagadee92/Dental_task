@@ -1194,6 +1194,8 @@ endobj`,
         const before = $("#baBefore")
         const divider = $("#baDivider")
         const hint = $("#dragHint")
+        const leftLabel = $(".ba-label.left")
+        const rightLabel = $(".ba-label.right")
 
         if (before) {
           before.style.clipPath = `inset(0 ${100 - p}% 0 0)`
@@ -1201,6 +1203,14 @@ endobj`,
 
         if (divider) {
           divider.style.left = p + "%"
+        }
+
+        if (leftLabel) {
+          leftLabel.style.opacity = p < 50 ? "1" : "0"
+        }
+
+        if (rightLabel) {
+          rightLabel.style.opacity = p > 50 ? "1" : "0"
         }
 
         if (hint) {

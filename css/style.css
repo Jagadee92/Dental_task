@@ -505,12 +505,16 @@ a {
   font-size: 0.7rem;
   font-weight: 800;
   z-index: 4;
+  transition: opacity 0.12s ease;
+  pointer-events: none;
 }
 .ba-label.left {
   left: 16px;
+  opacity: 1;
 }
 .ba-label.right {
   right: 16px;
+  opacity: 1;
 }
 .ba-divider {
   position: absolute;
