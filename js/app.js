@@ -1206,11 +1206,11 @@ endobj`,
         }
 
         if (leftLabel) {
-          leftLabel.style.opacity = p < 50 ? "1" : "0"
+          leftLabel.style.opacity = p <= 45 ? "1" : "0"
         }
 
         if (rightLabel) {
-          rightLabel.style.opacity = p > 50 ? "1" : "0"
+          rightLabel.style.opacity = p >= 55 ? "1" : "0"
         }
 
         if (hint) {
