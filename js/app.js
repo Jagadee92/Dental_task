@@ -54,34 +54,6 @@
 
   const $$ = (s, r = document) => [...r.querySelectorAll(s)]
 
-  const mobileActionBar = document.querySelector(".mobile-action-bar")
-  const heroSection = document.querySelector(".hero-section")
-  const mainNav = document.querySelector("#mainNav")
-
-  if (mainNav) {
-    mainNav.querySelectorAll(".nav-link").forEach((link) => {
-      link.addEventListener("click", () => {
-        if (window.innerWidth < 1200 && window.bootstrap?.Collapse) {
-          window.bootstrap.Collapse.getOrCreateInstance(mainNav).hide()
-        }
-      })
-    })
-  }
-
-  function updateMobileActionBar() {
-    if (!mobileActionBar || !heroSection) return
-
-    const offset = heroSection.offsetTop + heroSection.offsetHeight * 0.7
-    const show = window.scrollY > offset
-    mobileActionBar.classList.toggle("active", show)
-  }
-
-  if (mobileActionBar && heroSection) {
-    updateMobileActionBar()
-    window.addEventListener("scroll", updateMobileActionBar, { passive: true })
-    window.addEventListener("resize", updateMobileActionBar)
-  }
-
   /* =========================================================
      3. TREATMENT DATA
   ========================================================= */
@@ -1214,35 +1186,33 @@ endobj`,
     if (wrap) {
       let drag = false
 
-      function updateBeforeAfter(position) {
-        const before = document.getElementById("baBefore")
-        const divider = document.getElementById("baDivider")
-        const beforeLabel = document.querySelector(".ba-label.left")
-        const afterLabel = document.querySelector(".ba-label.right")
-
-        if (!before || !divider) return
-
-        position = Math.max(0, Math.min(100, position))
-
-        before.style.clipPath = `inset(0 ${100 - position}% 0 0)`
-        divider.style.left = `${position}%`
-
-        if (beforeLabel) {
-          beforeLabel.style.opacity = position > 12 ? "1" : "0"
-        }
-
-        if (afterLabel) {
-          afterLabel.style.opacity = position < 88 ? "1" : "0"
-        }
-      }
-
       const move = (x) => {
         const r = wrap.getBoundingClientRect()
-        const p = ((x - r.left) / r.width) * 100
 
-        updateBeforeAfter(p)
+        const p = Math.max(12, Math.min(88, ((x - r.left) / r.width) * 100))
 
+        const before = $("#baBefore")
+        const divider = $("#baDivider")
         const hint = $("#dragHint")
+        const leftLabel = $(".ba-label.left")
+        const rightLabel = $(".ba-label.right")
+
+        if (before) {
+          before.style.clipPath = `inset(0 ${100 - p}% 0 0)`
+        }
+
+        if (divider) {
+          divider.style.left = p + "%"
+        }
+
+        if (leftLabel) {
+          leftLabel.style.opacity = p <= 45 ? "1" : "0"
+        }
+
+        if (rightLabel) {
+          rightLabel.style.opacity = p >= 55 ? "1" : "0"
+        }
+
         if (hint) {
           hint.style.display = "none"
         }
@@ -1256,27 +1226,9 @@ endobj`,
         wrap.setPointerCapture(e.pointerId)
       }
 
-      wrap.ontouchstart = (e) => {
-        drag = true
-
-        const touch = e.touches && e.touches[0]
-        if (touch) {
-          move(touch.clientX)
-        }
-      }
-
       wrap.onpointermove = (e) => {
         if (drag) {
           move(e.clientX)
-        }
-      }
-
-      wrap.ontouchmove = (e) => {
-        if (!drag) return
-
-        const touch = e.touches && e.touches[0]
-        if (touch) {
-          move(touch.clientX)
         }
       }
 
@@ -1284,15 +1236,9 @@ endobj`,
         drag = false
       }
 
-      wrap.ontouchend = () => {
-        drag = false
-      }
-
       wrap.onpointercancel = () => {
         drag = false
       }
-
-      updateBeforeAfter(50)
     }
 
     /* -------------------------------------------------------
