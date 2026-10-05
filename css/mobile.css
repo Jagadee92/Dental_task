@@ -107,25 +107,35 @@
     height: 360px;
   }
 
-  .ba-before,
-  .ba-layer.before {
+  #baBefore,
+  .ba-layer.before,
+  .ba-before {
     display: none !important;
+    clip-path: none !important;
+    width: 0 !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
   }
 
+  #baAfter,
   .ba-layer.after {
-    width: 100%;
+    width: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    clip-path: none !important;
+    opacity: 1 !important;
   }
 
   .ba-divider {
-    display: none;
+    display: none !important;
   }
 
   .ba-label {
-    display: none;
+    display: none !important;
   }
 
   .drag-hint {
-    display: none;
+    display: none !important;
   }
 
   .floating-badge {
