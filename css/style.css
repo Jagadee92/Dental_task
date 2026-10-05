@@ -465,7 +465,7 @@ a {
   box-shadow: 0 25px 60px #042f2e1f;
   touch-action: none;
   user-select: none;
-  -webkit-user-select: none;
+  -webkit-user-select:auto;
 }
 .ba-layer {
   position: absolute;
