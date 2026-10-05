@@ -1269,6 +1269,10 @@ footer {
     border-radius: 18px;
   }
 
+  .ba-layer:after {
+    font-size: 4.2rem;
+  }
+
   .ba-label {
     top: 10px;
     padding: 6px 9px;
