@@ -658,137 +658,10 @@
 
         </div>
       `
-    } else {
-      body = `
-        <form
-          id="patientForm"
-          class="form-grid"
-        >
-
-          <label>
-            Full Name *
-            <input
-              name="name"
-              required
-            >
-          </label>
-
-          <label>
-            WhatsApp Mobile Number *
-            <input
-              name="phone"
-              required
-            >
-          </label>
-
-          <label>
-            Age *
-            <input
-              name="age"
-              type="number"
-              required
-              min="1"
-              max="120"
-            >
-          </label>
-
-          <label>
-            Gender *
-
-            <select name="gender" required>
-              <option value="">
-                Select
-              </option>
-
-              <option>
-                Female
-              </option>
-
-              <option>
-                Male
-              </option>
-
-              <option>
-                Other
-              </option>
-            </select>
-          </label>
-
-          <label>
-            Consultation Type *
-
-            <select name="type" required>
-              <option value="">
-                Select
-              </option>
-
-              <option>
-                In-Clinic Consultation
-              </option>
-
-              <option>
-                Emergency Toothache
-              </option>
-            </select>
-          </label>
-
-          <label class="full">
-            Chief Complaint
-
-            <textarea
-              name="complaint"
-              rows="3"
-            ></textarea>
-          </label>
-
-          <label class="full">
-
-            <input
-              name="wa"
-              type="checkbox"
-              checked
-            >
-
-            Receive instant appointment confirmation
-            & reminders on WhatsApp
-
-          </label>
-
-          <div class="wizard-actions full">
-
-            <button
-              type="button"
-              class="btn btn-outline-teal"
-              data-back
-            >
-              ← Back
-            </button>
-
-            <button
-              class="btn btn-primary-glow"
-            >
-              Confirm Appointment
-            </button>
-
-          </div>
-
-        </form>
-      `
     }
 
     c.innerHTML = `
-      <span class="eyebrow">
-        STEP ${B.step} OF 4
-      </span>
-
       <h2>${h}</h2>
-
-      ${
-        B.step === 1
-          ? "<p>Visual treatment cards with duration and starting price.</p>"
-          : ""
-      }
-
       ${body}
 
       ${
@@ -2036,13 +1909,5 @@ endobj`,
     }
   }
 
-  /* =========================================================
-     27. START APPLICATION
-  ========================================================= */
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init, { once: true })
-  } else {
-    init()
-  }
+  init()
 })()

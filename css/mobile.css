@@ -1,0 +1,360 @@
+@media (max-width: 991px) {
+  .comparison-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .doctor-scroller {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .video-reviews,
+  .reviews-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tour-card,
+  .emi-card,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-dental-art {
+    height: 420px;
+  }
+
+  .open-status {
+    display: none;
+  }
+
+  .floating-badge {
+    position: static;
+    margin-top: 12px;
+  }
+}
+
+@media (max-width: 767px) {
+  body {
+    overflow-x: hidden;
+    padding-bottom: 68px;
+  }
+
+  .site-header {
+    height: 68px;
+  }
+
+  .section-pad {
+    padding: 60px 0;
+  }
+
+  .hero-section {
+    padding-top: 100px;
+    min-height: auto;
+  }
+
+  .hero-section h1 {
+    font-size: 2.45rem;
+    line-height: 1.08;
+  }
+
+  .hero-copy {
+    font-size: 1rem;
+  }
+
+  .social-proof {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .micro-tags {
+    gap: 6px;
+  }
+
+  .comparison-grid,
+  .doctor-scroller,
+  .video-reviews,
+  .reviews-grid,
+  .choice-grid,
+  .form-grid,
+  .rooms,
+  .tour-card,
+  .emi-card,
+  .contact-grid,
+  .assessment-options,
+  .confirm-details,
+  .roadmap-line {
+    grid-template-columns: 1fr;
+  }
+
+  .phone-pill {
+    display: none;
+  }
+
+  .nav-actions {
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 12px;
+  }
+
+  .navbar-nav {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .brand small {
+    display: none;
+  }
+
+  .ba-wrap {
+    height: 360px;
+  }
+
+  #baBefore,
+  .ba-layer.before,
+  .ba-before {
+    display: none !important;
+    clip-path: none !important;
+    width: 0 !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
+  #baAfter,
+  .ba-layer.after {
+    width: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    clip-path: none !important;
+    opacity: 1 !important;
+  }
+
+  .ba-divider {
+    display: none !important;
+  }
+
+  .ba-label {
+    display: none !important;
+  }
+
+  .drag-hint {
+    display: none !important;
+  }
+
+  .floating-badge {
+    width: 100%;
+    font-size: 0.7rem;
+  }
+
+  .doctor-avatar {
+    height: 180px;
+  }
+
+  .queue-head,
+  .queue-main,
+  .queue-head > div {
+    display: block;
+  }
+
+  .queue-main {
+    gap: 12px;
+    flex-direction: column;
+  }
+
+  .current-token,
+  .next-tokens {
+    width: 100%;
+  }
+
+  .current-token strong,
+  .next-tokens strong {
+    font-size: 1.8rem;
+  }
+
+  .modal-card {
+    padding: 20px;
+  }
+
+  .booking-progress {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .wizard-actions {
+    flex-direction: column-reverse;
+  }
+
+  /* Horizontal Swipeable Carousels */
+  .date-row,
+  .slot-row,
+  .shift-row,
+  .filter-row {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
+    gap: 8px;
+  }
+
+  .date-pill,
+  .slot-chip,
+  .shift-row button,
+  .filter-row button,
+  .case-tabs button {
+    scroll-snap-align: start;
+    flex: 0 0 auto;
+    min-width: 90px;
+    scroll-snap-stop: always;
+  }
+
+  /* Touch-Friendly Hit Targets - 48px minimum */
+  button,
+  a,
+  input[type="button"],
+  input[type="submit"],
+  .btn,
+  .choice-card,
+  .date-pill,
+  .slot-chip,
+  .filter-row button,
+  .case-tabs button,
+  .shift-row button {
+    min-height: 48px;
+    min-width: 48px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .treatment-card button,
+  .doctor-book {
+    min-height: 48px;
+    padding: 12px 16px;
+  }
+
+  /* Sticky Bottom Action Bar */
+  .mobile-action-bar {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1500;
+    background: #fff;
+    border-top: 1px solid var(--line);
+    padding: 8px;
+    gap: 8px;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.08);
+    height: 68px;
+    align-items: center;
+  }
+
+  .mobile-action-bar a,
+  .mobile-action-bar button {
+    flex: 1;
+    border-radius: 10px;
+    padding: 12px;
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 800;
+    min-height: 48px;
+    border: 1px solid var(--teal600);
+    background: #fff;
+    color: var(--teal700);
+  }
+
+  .mobile-action-bar button {
+    background: var(--teal700);
+    color: #fff;
+    border-color: var(--teal700);
+  }
+
+  .mobile-action-bar a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .hero-section h1 {
+    font-size: 2.1rem;
+  }
+
+  .btn-primary-glow,
+  .btn-outline-teal,
+  .btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 48px;
+  }
+
+  .hero-section .d-flex {
+    flex-direction: column;
+  }
+
+  .micro-tags span,
+  .tour-points span,
+  .trust-badges span {
+    width: 100%;
+    text-align: center;
+  }
+
+  .ba-label {
+    font-size: 0.6rem;
+  }
+
+  .drag-hint {
+    bottom: 10px;
+    font-size: 0.65rem;
+  }
+
+  .modal-shell {
+    padding: 10px;
+  }
+
+  .section-heading h2 {
+    font-size: 1.5rem;
+  }
+
+  .metric strong {
+    font-size: 1.5rem;
+  }
+
+  .metric span {
+    font-size: 0.6rem;
+  }
+
+  /* Extra touch-friendly spacing for smaller screens */
+  button,
+  a,
+  input[type="button"],
+  input[type="submit"] {
+    min-height: 48px;
+    min-width: 48px;
+    padding: 14px 16px;
+  }
+
+  .mobile-action-bar {
+    height: 72px;
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .mobile-action-bar a,
+  .mobile-action-bar button {
+    font-size: 0.7rem;
+    padding: 12px;
+  }
+
+  .date-pill,
+  .slot-chip {
+    min-width: 100px;
+    font-size: 0.75rem;
+  }
+}
