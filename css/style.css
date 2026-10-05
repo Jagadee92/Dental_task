@@ -476,10 +476,12 @@ a {
 .ba-layer:after {
   font-size: 8rem;
   font-weight: 900;
-  opacity: 0.15;
+  opacity: var(--watermark-opacity, 0.15);
+  transition: opacity 0.15s ease;
 }
 .ba-before,
 .ba-layer.before {
+  --watermark-opacity: 0.15;
   background: linear-gradient(135deg, #59636e, #c7bcb3 45%, #6f6964);
 }
 .ba-layer.before:after {
@@ -487,6 +489,7 @@ a {
   color: #fff;
 }
 .ba-layer.after {
+  --watermark-opacity: 0.15;
   background: linear-gradient(135deg, #d8fff8, #fff 55%, #9fe3d8);
 }
 .ba-layer.after:after {
@@ -1267,6 +1270,11 @@ footer {
   .ba-wrap {
     height: 240px;
     border-radius: 18px;
+  }
+
+  .ba-layer:after {
+    font-size: 3.5rem;
+    letter-spacing: -0.06em;
   }
 
   .ba-label {

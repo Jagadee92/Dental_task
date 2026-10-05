@@ -1188,23 +1188,30 @@ endobj`,
 
       function updateBeforeAfter(position) {
         const before = document.getElementById("baBefore")
+        const after = document.getElementById("baAfter")
         const divider = document.getElementById("baDivider")
         const beforeLabel = document.querySelector(".ba-label.left")
         const afterLabel = document.querySelector(".ba-label.right")
 
-        if (!before || !divider) return
+        if (!before || !after || !divider) return
 
         position = Math.max(0, Math.min(100, position))
 
         before.style.clipPath = `inset(0 ${100 - position}% 0 0)`
         divider.style.left = `${position}%`
 
+        const beforeWatermark = position < 10 ? 0 : position < 35 ? 0.06 : 0.15
+        const afterWatermark = position > 90 ? 0 : position > 65 ? 0.06 : 0.15
+
+        before.style.setProperty("--watermark-opacity", beforeWatermark)
+        after.style.setProperty("--watermark-opacity", afterWatermark)
+
         if (beforeLabel) {
-          beforeLabel.style.opacity = position < 22 ? "0" : "1"
+          beforeLabel.style.opacity = position < 18 ? "0" : "1"
         }
 
         if (afterLabel) {
-          afterLabel.style.opacity = position > 78 ? "0" : "1"
+          afterLabel.style.opacity = position > 82 ? "0" : "1"
         }
       }
 
