@@ -1227,12 +1227,17 @@ endobj`,
         }
       }
 
+      const finishDrag = () => {
+        drag = false
+      }
+
       wrap.onpointerdown = (e) => {
         drag = true
-
         move(e.clientX)
 
-        wrap.setPointerCapture(e.pointerId)
+        if (typeof e.pointerId === "number") {
+          wrap.setPointerCapture(e.pointerId)
+        }
       }
 
       wrap.onpointermove = (e) => {
@@ -1241,9 +1246,28 @@ endobj`,
         }
       }
 
-      wrap.onpointerup = () => {
+      wrap.onpointerup = finishDrag
+      wrap.onpointercancel = finishDrag
+      wrap.onpointerleave = () => {
+        if (!drag) return
         drag = false
       }
+
+      wrap.ontouchstart = (e) => {
+        if (!e.touches || !e.touches[0]) return
+        drag = true
+        move(e.touches[0].clientX)
+        e.preventDefault()
+      }
+
+      wrap.ontouchmove = (e) => {
+        if (!drag || !e.touches || !e.touches[0]) return
+        move(e.touches[0].clientX)
+        e.preventDefault()
+      }
+
+      wrap.ontouchend = finishDrag
+      wrap.ontouchcancel = finishDrag
 
       wrap.onpointercancel = () => {
         drag = false
