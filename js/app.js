@@ -1186,33 +1186,35 @@ endobj`,
     if (wrap) {
       let drag = false
 
+      function updateBeforeAfter(position) {
+        const before = document.getElementById("baBefore")
+        const divider = document.getElementById("baDivider")
+        const beforeLabel = document.querySelector(".ba-label.left")
+        const afterLabel = document.querySelector(".ba-label.right")
+
+        if (!before || !divider) return
+
+        position = Math.max(0, Math.min(100, position))
+
+        before.style.clipPath = `inset(0 ${100 - position}% 0 0)`
+        divider.style.left = `${position}%`
+
+        if (beforeLabel) {
+          beforeLabel.style.opacity = position < 22 ? "0" : "1"
+        }
+
+        if (afterLabel) {
+          afterLabel.style.opacity = position > 78 ? "0" : "1"
+        }
+      }
+
       const move = (x) => {
         const r = wrap.getBoundingClientRect()
+        const p = ((x - r.left) / r.width) * 100
 
-        const p = Math.max(12, Math.min(88, ((x - r.left) / r.width) * 100))
+        updateBeforeAfter(p)
 
-        const before = $("#baBefore")
-        const divider = $("#baDivider")
         const hint = $("#dragHint")
-        const leftLabel = $(".ba-label.left")
-        const rightLabel = $(".ba-label.right")
-
-        if (before) {
-          before.style.clipPath = `inset(0 ${100 - p}% 0 0)`
-        }
-
-        if (divider) {
-          divider.style.left = p + "%"
-        }
-
-        if (leftLabel) {
-          leftLabel.style.opacity = p <= 45 ? "1" : "0"
-        }
-
-        if (rightLabel) {
-          rightLabel.style.opacity = p >= 55 ? "1" : "0"
-        }
-
         if (hint) {
           hint.style.display = "none"
         }
