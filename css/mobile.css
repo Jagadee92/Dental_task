@@ -35,6 +35,7 @@
 @media (max-width: 767px) {
   body {
     overflow-x: hidden;
+    padding-bottom: 68px;
   }
 
   .site-header {
@@ -180,17 +181,98 @@
     flex-direction: column-reverse;
   }
 
+  /* Horizontal Swipeable Carousels */
   .date-row,
   .slot-row,
   .shift-row,
   .filter-row {
+    display: flex;
     overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
+    gap: 8px;
   }
 
   .date-pill,
   .slot-chip,
-  .shift-row button {
+  .shift-row button,
+  .filter-row button,
+  .case-tabs button {
+    scroll-snap-align: start;
+    flex: 0 0 auto;
     min-width: 90px;
+    scroll-snap-stop: always;
+  }
+
+  /* Touch-Friendly Hit Targets - 48px minimum */
+  button,
+  a,
+  input[type="button"],
+  input[type="submit"],
+  .btn,
+  .choice-card,
+  .date-pill,
+  .slot-chip,
+  .filter-row button,
+  .case-tabs button,
+  .shift-row button {
+    min-height: 48px;
+    min-width: 48px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .treatment-card button,
+  .doctor-book {
+    min-height: 48px;
+    padding: 12px 16px;
+  }
+
+  /* Sticky Bottom Action Bar */
+  .mobile-action-bar {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1500;
+    background: #fff;
+    border-top: 1px solid var(--line);
+    padding: 8px;
+    gap: 8px;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.08);
+    height: 68px;
+    align-items: center;
+  }
+
+  .mobile-action-bar a,
+  .mobile-action-bar button {
+    flex: 1;
+    border-radius: 10px;
+    padding: 12px;
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 800;
+    min-height: 48px;
+    border: 1px solid var(--teal600);
+    background: #fff;
+    color: var(--teal700);
+  }
+
+  .mobile-action-bar button {
+    background: var(--teal700);
+    color: #fff;
+    border-color: var(--teal700);
+  }
+
+  .mobile-action-bar a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -209,6 +291,7 @@
   .btn {
     width: 100%;
     justify-content: center;
+    min-height: 48px;
   }
 
   .hero-section .d-flex {
@@ -235,10 +318,6 @@
     padding: 10px;
   }
 
-  .mobile-action-bar {
-    display: flex;
-  }
-
   .section-heading h2 {
     font-size: 1.5rem;
   }
@@ -249,5 +328,33 @@
 
   .metric span {
     font-size: 0.6rem;
+  }
+
+  /* Extra touch-friendly spacing for smaller screens */
+  button,
+  a,
+  input[type="button"],
+  input[type="submit"] {
+    min-height: 48px;
+    min-width: 48px;
+    padding: 14px 16px;
+  }
+
+  .mobile-action-bar {
+    height: 72px;
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .mobile-action-bar a,
+  .mobile-action-bar button {
+    font-size: 0.7rem;
+    padding: 12px;
+  }
+
+  .date-pill,
+  .slot-chip {
+    min-width: 100px;
+    font-size: 0.75rem;
   }
 }
